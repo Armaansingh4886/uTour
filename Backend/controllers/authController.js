@@ -9,21 +9,27 @@ export const register = async (req, res) => {
     //hashing passwords
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt);
-console.log(req.body.username)
+// console.log(req.body.username)
     const newUser = new User({
       username: req.body.username,
       email: req.body.email,
       password: hash,
-      photo: req.body.photo,
+      // photo: req.body.photo,
     });
 
     
     console.log(newUser);
+    // if(User.exist({"email":newUser.email},{"username":newUser.username})){
+    //   res
+    //   .status(500)
+    //   .json({ success: false, message: "username/email already exists"});
+    // }
     await newUser.save();
 
 console.log("e")
     res.status(200).json({ success: true, message: "successfully created" });
   } catch(err) {
+    // console.log(err)
     res
       .status(500)
       .json({ success: false, message: "failed to register"});
