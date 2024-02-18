@@ -36,12 +36,12 @@ const Login = () => {
               body: JSON.stringify(credentials),
             });
             const result = await res.json();
-            if (!res.ok) alert(result.message);
-
+            if (!res.ok) { alert(result.message);
+            }else{
             console.log(result.data)
       
             dispatch({ type: "LOGIN_SUCCESS" , payload:result});
-            navigate('/')
+            navigate('/')}
           } catch (err) {
             dispatch({type:'LOGIN_FAILURE', payload:err.message})
           }

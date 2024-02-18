@@ -18,17 +18,18 @@ export const register = async (req, res) => {
     });
 
     
-    console.log(newUser);
-    // if(User.exist({"email":newUser.email},{"username":newUser.username})){
-    //   res
-    //   .status(500)
-    //   .json({ success: false, message: "username/email already exists"});
-    // }
+    // console.log(newUser);
+    console.log(!!await User.findOne({"email":newUser.email},{"username":newUser.username}));
+    if(!!await User.findOne({"email":newUser.email},{"username":newUser.username})){
+      res
+      .status(409)
+      .json({ success: false, message: "username/email already exists"});
+    }else{
     await newUser.save();
 
 console.log("e")
     res.status(200).json({ success: true, message: "successfully created" });
-  } catch(err) {
+  } }catch(err) {
     // console.log(err)
     res
       .status(500)

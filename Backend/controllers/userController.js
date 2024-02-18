@@ -16,7 +16,7 @@ try{
 
 res .status(500)
 
-.json({ success: false, message: "Failed to create. Try again" });
+.json({ success: false, message: "Failed to create. Try again" , err});
 }
 };
 
