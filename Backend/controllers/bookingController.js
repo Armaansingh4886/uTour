@@ -9,6 +9,7 @@ export const createBooking = async (req,res)=>{
         res.status(200).json({success:true, message:'Your tour is booked',
     data:savedBooking})
     } catch (err) {
+        console.log(err);
         res.status(500).json({success:false, message:'internal server error',error:err})
         
     }
@@ -31,6 +32,7 @@ export const getAllBooking = async(req,res)=>{
 
     try {
         const books = await Booking.find()
+        console.log(books);
 
         res.status(200).json({success:true,message:"successful",data: books})
     } catch (err) {

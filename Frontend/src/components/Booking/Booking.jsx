@@ -22,22 +22,26 @@ const Booking = ({ tour, avgRating }) => {
 
   const handleChange = (e) => {
     setBooking((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+   
   };
-
+  
   const serviceFee = 10;
   const totalAmount = Number(price) * Number(booking.guestSize) + Number(serviceFee);
   //send data to the server
-
+const handleshow = async () =>{
+  console.log( (await fetch(`${BASE_URL}/bookings`,{method:'get',headers:{'content-type':'application/json'}})).json());
+}
   const handleClick = async (e) => {
     e.preventDefault();
 // const 
+
 
 try {
   if(!user || user===undefined || user === null){
     return alert('Please sign in first')
   }
 
-  const res = await fetch(`${BASE_URL}/booking`,{
+  const res = await fetch(`${BASE_URL}/bookings`,{
     method:'post',
 headers:{
   'content-type':'application/json'
@@ -47,17 +51,17 @@ body:JSON.stringify(booking)
 })
 
 const result = await res.json()
-
-// if(!res.ok){
-//   return alert(result.message)
-// }
+console.log("e");
+if(!res.ok){
+  return alert(result.message)
+}
     navigate("/thank-you");
 } catch (err) {
-  // alert(err.message)
-  navigate("/thank-you");
+  console.log(err.message);
+  alert(err.message)
+  // navigate("/thank-you");
 
 }
-
 
   };
 
@@ -81,7 +85,7 @@ const result = await res.json()
             <input
               type="text"
               placeholder="Full Name"
-              id="Full Name"
+              id="fullName"
               required
               onChange={handleChange}
             />
@@ -90,7 +94,7 @@ const result = await res.json()
             <input
               type="number"
               placeholder="Phone"
-              id="Phone"
+              id="phone"
               required
               onChange={handleChange}
             />
@@ -135,6 +139,9 @@ const result = await res.json()
         </ListGroup>
         <Button className="btn primary__btn w-100 mt-4" onClick={handleClick}>
           Book Now
+        </Button>
+        <Button className="btn primary__btn w-100 mt-4" onClick={handleshow}>
+          Show Now
         </Button>
       </div>
     </div>
