@@ -29,7 +29,7 @@ const Booking = ({ tour, avgRating }) => {
   const totalAmount = Number(price) * Number(booking.guestSize) + Number(serviceFee);
   //send data to the server
 const handleshow = async () =>{
-  console.log( (await fetch(`${BASE_URL}/bookings`,{method:'get',headers:{'content-type':'application/json'}})).json());
+  console.log( (await fetch(`${BASE_URL}/bookings`,{method:'get',headers:{'content-type':'application/json'},credentials:'include'})).json());
 }
   const handleClick = async (e) => {
     e.preventDefault();
