@@ -8,6 +8,8 @@ import SearchResultList from '../pages/SearchResultList'
 import ThankYou from '../pages/ThankYou'
 import Tour from '../pages/Tour'
 import TourDetail from '../pages/TourDetail'
+import Bookings from '../pages/Bookings'
+
 const Routers = () => {
   return (
     <div>
@@ -19,6 +21,7 @@ const Routers = () => {
         <Route path='/tours/:id' element={<TourDetail/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
+        <Route path='/bookings' element={<Bookings/>}/>
         <Route path='/thank-you' element={<ThankYou/>}/>
         <Route path='/tours/search' element={<SearchResultList/>}/>
       </Routes> 

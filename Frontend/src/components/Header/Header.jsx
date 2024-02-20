@@ -16,6 +16,9 @@ const nav__links=[
     },{
         path:'/tours',
         display:'Tours'
+    },{
+        path:'/bookings',
+        display:'Bookings'
     }
 ]
 const Header = () => {
