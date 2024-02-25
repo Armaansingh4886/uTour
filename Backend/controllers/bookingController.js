@@ -31,6 +31,7 @@ export const getAllBooking = async(req,res)=>{
     
 
     try {
+        
         const books = await Booking.find()
         console.log(books);
 
