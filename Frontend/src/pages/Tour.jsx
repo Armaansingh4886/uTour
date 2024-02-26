@@ -8,7 +8,7 @@ import tourData from "../assets/data/tours";
 import { Col, Row, Container } from "reactstrap";
 import useFetch from '../hooks/useFetch'
 import {BASE_URL} from "../utils/config"
-
+//  tours
 const Tour = () => {
 
   const [pageCount, setPageCount] = useState(0)
