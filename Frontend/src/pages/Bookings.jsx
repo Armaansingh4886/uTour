@@ -14,6 +14,7 @@ const Bookings = () => {
     <>
       <CommonSection title={"Bookings"} />
       {/* {bookings?.map((book)=>{<div>{book}</div>})}; */}
+      <tour
       
     </>
   );
