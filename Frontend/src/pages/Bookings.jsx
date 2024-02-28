@@ -9,12 +9,12 @@ const Bookings = () => {
   },
   credentials:'include',});
   
-  console.log(bookings);
+  console.log(bookings.data);
   return (
     <>
       <CommonSection title={"Bookings"} />
-      {/* {bookings?.map((book)=>{<div>{book}</div>})}; */}
-      <tour
+      {/* {bookings.data?.map((book)=>{return <div>this</div>})}; */}
+     
       
     </>
   );
