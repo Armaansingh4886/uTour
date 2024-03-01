@@ -2,6 +2,8 @@ import React from "react";
 import CommonSection from "../shared/CommonSection";
 import { BASE_URL } from "../utils/config";
 import useFetch from "../hooks/useFetch"
+import ShowBooking from "../shared/ShowBooking";
+import "../styles/bookings.css"
 const Bookings = () => {
   const bookings =   useFetch(`${BASE_URL}/bookings`,{method:'get',
   headers:{
@@ -13,8 +15,11 @@ const Bookings = () => {
   return (
     <>
       <CommonSection title={"Bookings"} />
-      {/* {bookings.data?.map((book)=>{return <div>this</div>})}; */}
-     
+      <section className="bookings">
+        
+      {bookings.data?.map((book)=>{return  <><ShowBooking data={book}/> </>})}
+      </section>
+    
       
     </>
   );
