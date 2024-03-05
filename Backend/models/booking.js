@@ -5,6 +5,9 @@ const bookingSchema = new mongoose.Schema(
     userId: {
       type: String
     },
+    tourId:{
+      type: String
+    },
     tourName:{
 type: String,
 required: true

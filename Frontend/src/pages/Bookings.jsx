@@ -18,6 +18,7 @@ const Bookings = () => {
       <section className="bookings">
         
       {bookings.data?.map((book)=>{return  <><ShowBooking data={book}/> </>})}
+      {/* <ShowBooking/> */}
       </section>
     
       

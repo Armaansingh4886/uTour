@@ -4,3 +4,49 @@
     background-color: grey;
     margin: 20px 0;
 }
+
+
+
+
+
+.tour-card {
+    display: flex;
+    /* flex-direction: column; */
+    background: #0000006c;
+    border: 1px solid #ccc;
+    height: 200px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    color: white;
+  }
+  
+  .tour-info {
+    margin-bottom: 10px;
+  }
+  
+  .tour-info h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  .tour-actions{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+  }
+  
+  .tour-actions button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--secondary-color);
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .tour-actions button:hover {
+    background-color: var(--primary-color);
+  }
