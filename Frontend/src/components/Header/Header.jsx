@@ -16,9 +16,6 @@ const nav__links=[
     },{
         path:'/tours',
         display:'Tours'
-    },{
-        path:'/bookings',
-        display:'Bookings'
     }
 ]
 const Header = () => {
@@ -36,7 +33,7 @@ const logout= ()=>{
  const stickyHeaderFunc = ()=>{
     window.addEventListener('scroll',()=>{
         if(document.body.scrollTop >80 || document.documentElement.scrollTop >80){
-            headerRef.current.classList.add('sticky__header')
+            headerRef.current.classList.add('sticky__header') 
         }else{
             headerRef.current.classList.remove('sticky__header') 
         }
@@ -69,7 +66,12 @@ const logout= ()=>{
                                     <NavLink to={item.path} className={navClass=> navClass.isActive ? 'active__link':''}>{ item.display}</NavLink>
                                 </li>
                             ))
+                        
                         }
+                        {user&& <li className="nav__item">
+                          
+                            <NavLink to="/bookings" className={navClass=>navClass.isActive ? 'active__link':''}>Bookings</NavLink>
+                            </li>}
                         </ul>
                     </div>
                     {/* {====================menu end ==================} */}

@@ -11,7 +11,7 @@ const Booking = ({ tour, avgRating }) => {
 
   const {user} = useContext(AuthContext)
   const [ booking, setBooking ] = useState({
-    userId: user && user._id,
+    userId: user &&user._id,
     userEmail: user && user.email,
     tourName:title, 
     fullName: "",
@@ -70,6 +70,7 @@ if(!res.ok){
       <div className="booking__top d-flex align-items-center justify-content-between">
         <h3>
           Rs{price} <span>/per person</span>
+          
         </h3>
         <span className="tour__rating d-flex align-item-center">
           <i class="ri-star-s-fill"></i>
