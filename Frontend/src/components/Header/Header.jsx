@@ -46,7 +46,7 @@ const logout= ()=>{
     stickyHeaderFunc()
 
     return window.removeEventListener('scroll',stickyHeaderFunc)
- })
+ },[document.documentElement.scrollTop])
   return (
     <header className="header" ref={headerRef}>
         <Container>

@@ -1,29 +1,58 @@
-import React from "react";
-import CommonSection from "../shared/CommonSection";
-import { BASE_URL } from "../utils/config";
-import useFetch from "../hooks/useFetch"
-import ShowBooking from "../shared/ShowBooking";
-import "../styles/bookings.css"
-const Bookings = () => {
-  const bookings =   useFetch(`${BASE_URL}/bookings`,{method:'get',
-  headers:{
-    'content-type':'application/json'
-  },
-  credentials:'include',});
-  
-  console.log(bookings.data);
-  return (
-    <>
-      <CommonSection title={"Bookings"} />
-      <section className="bookings">
-        
-      {bookings.data?.map((book)=>{return  <><ShowBooking data={book}/> </>})}
-      {/* <ShowBooking/> */}
-      </section>
-    
-      
-    </>
-  );
-};
+import React, { useState,useContext, useEffect } from "react";
 
-export default Bookings;
+import {AuthContext} from '../context/AuthContext'
+import {BASE_URL} from '../utils/config'
+
+const Bookings = () => {
+
+const [list,setList ]= useState("");
+  
+  const {user} = useContext(AuthContext)
+  let result;
+ 
+  const handleClick = async () => {
+   
+// const 
+
+
+try {
+  if(!user || user===undefined || user === null){
+    return alert('Please sign in first')
+  }
+
+  const res = await fetch(`${BASE_URL}/bookings`,{
+    method:'get',
+headers:{
+  'content-type':'application/json'
+},
+credentials:'include',
+// body:JSON.stringify(booking)
+})
+
+const result = await res.json()
+setList(result.data)
+console.log(result.data);
+return result
+if(!res.ok){
+  return alert(result.message)
+}
+    // navigate("/thank-you");
+} catch (err) {
+  console.log(err.message);
+  alert(err.message)
+  // navigate("/thank-you");
+
+}
+
+  };
+  result = handleClick();
+  console.log(result);
+  return (
+    <div> 
+      hello
+      {list}
+    </div>
+  )
+}
+
+export default Bookings

@@ -42,16 +42,16 @@ try {
   }
 
   const res = await fetch(`${BASE_URL}/bookings`,{
-    method:'post',
+    method:'get',
 headers:{
   'content-type':'application/json'
 },
 credentials:'include',
-body:JSON.stringify(booking)
+// body:JSON.stringify(booking)
 })
 
 const result = await res.json()
-console.log("e");
+console.log(result);
 if(!res.ok){
   return alert(result.message)
 }
