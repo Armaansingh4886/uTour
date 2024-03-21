@@ -11,7 +11,7 @@ const Booking = ({ tour, avgRating }) => {
 
   const {user} = useContext(AuthContext)
   const [ booking, setBooking ] = useState({
-    userId: user &&user._id,
+    userId: user &&user.data._id,
     userEmail: user && user.email,
     tourName:title, 
     fullName: "",
@@ -19,6 +19,7 @@ const Booking = ({ tour, avgRating }) => {
     guestSize: 1,
     bookAt: "",
   });
+  console.log(user.data._id);
 
   const handleChange = (e) => {
     setBooking((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -42,12 +43,12 @@ try {
   }
 
   const res = await fetch(`${BASE_URL}/bookings`,{
-    method:'get',
+    method:'post',
 headers:{
   'content-type':'application/json'
 },
 credentials:'include',
-// body:JSON.stringify(booking)
+body:JSON.stringify(booking)
 })
 
 const result = await res.json()

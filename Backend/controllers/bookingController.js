@@ -32,7 +32,7 @@ export const getAllBooking = async(req,res)=>{
 
     try {
         console.log(req.user)
-        const books = await Booking.find()
+        const books = await Booking.find({userId:req.user.id})
         console.log(books);
 
         res.status(200).json({success:true,message:"successful",data: books})

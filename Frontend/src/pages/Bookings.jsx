@@ -1,5 +1,8 @@
 import React, { useState,useContext, useEffect } from "react";
+import ShowBooking from "../shared/ShowBooking";
+import "../styles/bookings.css"
 
+import CommonSection from "../shared/CommonSection";
 import {AuthContext} from '../context/AuthContext'
 import {BASE_URL} from '../utils/config'
 
@@ -31,7 +34,7 @@ credentials:'include',
 
 const result = await res.json()
 setList(result.data)
-console.log(result.data);
+// console.log(result.data);
 return result
 if(!res.ok){
   return alert(result.message)
@@ -45,13 +48,21 @@ if(!res.ok){
 }
 
   };
-  result = handleClick();
-  console.log(result);
+  useEffect(()=>{ handleClick()},[])
+ 
+  console.log(list);
   return (
-    <div> 
-      hello
-      {list}
-    </div>
+    <>
+    
+      <CommonSection title={"Bookings"} />
+      <section className="bookings">
+        
+      {list&&(list?.map((book)=>{return  <><ShowBooking data={book}/> </>}))}
+      {/* <ShowBooking/> */}
+      </section>
+    
+      
+    </>
   )
 }
 
