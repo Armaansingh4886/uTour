@@ -9,6 +9,7 @@ import ThankYou from '../pages/ThankYou'
 import Tour from '../pages/Tour'
 import TourDetail from '../pages/TourDetail'
 import Bookings from '../pages/Bookings'
+import VerifyEmail from '../pages/VerifyEmail'
 
 const Routers = () => {
   return (
@@ -24,7 +25,10 @@ const Routers = () => {
         <Route path='/bookings' element={<Bookings/>}/>
         <Route path='/thank-you' element={<ThankYou/>}/>
         <Route path='/tours/search' element={<SearchResultList/>}/>
-      </Routes> 
+        <Route path="/verifyemail" element={<VerifyEmail/>}/>
+      </Routes>
+      
+      
     </div>
   )
 }
