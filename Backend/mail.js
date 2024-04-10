@@ -22,9 +22,9 @@ var transport = nodemailer.createTransport({
   var mailOptions = {
     from: '"Example Team" <armaansingh4013@gmail.com>',
     to: 'armaansingh4013@gmail.com',
-    subject: 'Nice Nodemailer test',
-    text: 'Hey there, it’s our first message sent with Nodemailer 😉 ',
-    html: '<b>Hey there! </b><br> This is our first message sent with Nodemailer  <a href="http://localhost:3000/verifyemail">Click Here</a>'
+    subject: 'Verify Your uTour account',
+    text: 'Hey there, it’s mail to verify your registerd email on uTour ',
+    html: '<b>Hey there! </b><br> An account is registered with this email on uTour. <a href="http://localhost:3000/verifyemail">Click Here</a> to verify your email'
 };
 
 transport.sendMail(mailOptions, (error, info) => {
